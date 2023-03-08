@@ -1,0 +1,23 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: config-policy-controller-cb5l
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: config-policy-controller-cb5l
+    app.kubernetes.io/part-of: config-policy-controller
+  name: config-policy-controller-cb5l
+  namespace: dfodor-tenant
+spec:
+  port:
+    targetPort: 8080
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: config-policy-controller-cb5l
+    weight: 100
+status: {}
